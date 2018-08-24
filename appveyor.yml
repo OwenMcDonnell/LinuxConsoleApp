@@ -9,7 +9,7 @@ install:
   - nuget restore
   
 artifacts:
-- path: ./**/*
+- path: ./**/*.exe
   name: allArtifacts
   
 build:
