@@ -1,0 +1,24 @@
+version: 1.0.{build}
+
+image: Ubuntu
+
+environment:
+  test_var: test
+    
+install:
+  - nuget restore
+  
+artifacts:
+- path: ./**/*
+  name: allArtifacts
+  
+build:
+  project: WebAppTestDeployment.sln
+  #publish_wap: true
+
+deploy_script: 
+  - ps: | 
+          foreach ($artifactName in $artifacts.keys) { 
+            Write-Host $artifactName 
+            Write-Host $artifacts[$artifactName].path 
+          }
