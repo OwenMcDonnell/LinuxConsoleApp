@@ -9,7 +9,7 @@ install:
   - nuget restore
   
 artifacts:
-- path: .LinuxConsoleApp/**/*
+- path: ./LinuxConsoleApp/**/*
   name: allArtifacts
   
 build:
