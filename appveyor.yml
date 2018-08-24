@@ -9,7 +9,7 @@ install:
   - nuget restore
   
 artifacts:
-- path: ./**/*.exe
+- path: .LinuxConsoleApp/**/*
   name: allArtifacts
   
 build:
@@ -19,7 +19,6 @@ build:
 deploy_script: 
   - ps: | 
           $artifacts.count
-          foreach ($artifactName in $artifacts.keys) { 
-            write-host "count"
+          foreach ($artifactName in $artifacts.keys) {             
             $artifacts[$artifactName]
           }
