@@ -20,5 +20,5 @@ deploy_script:
   - ps: | 
           foreach ($artifactName in $artifacts.keys) { 
             
-            Write-Host $artifacts[$artifactName]
+            Write-Host $artifactName
           }
