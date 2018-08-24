@@ -13,7 +13,7 @@ artifacts:
   name: allArtifacts
   
 build:
-  project: WebAppTestDeployment.sln
+  project: LinuxConsoleApp.sln
   #publish_wap: true
 
 deploy_script: 
