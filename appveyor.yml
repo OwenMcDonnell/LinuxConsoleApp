@@ -18,8 +18,8 @@ build:
 
 deploy_script: 
   - ps: | 
-          write-host $artifacts.keys
+          $artifacts.count
           foreach ($artifactName in $artifacts.keys) { 
             write-host "count"
-            Write-Host $artifactName.name
+            $artifacts[$artifactName]
           }
