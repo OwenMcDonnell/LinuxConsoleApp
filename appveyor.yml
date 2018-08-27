@@ -1,6 +1,6 @@
 version: 1.0.{build}
 
-image: Ubuntu
+image: Visual Studio 2017
 environment:
   test_var: test
     
@@ -8,13 +8,14 @@ install:
   - nuget restore
   
 artifacts:
-- path: ./LinuxConsoleApp/**/*
+- path: package.zip
   name: allArtifacts
   
 build:
   project: LinuxConsoleApp.sln
   #publish_wap: true
-
+after_build:
+  - 7z a package.zip %APPVEYOR_BUILD_FOLDER%/LinuxConsoleApp/**/*
 deploy_script: 
   - ps: | 
           $artifacts.count
