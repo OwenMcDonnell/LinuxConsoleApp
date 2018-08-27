@@ -17,7 +17,7 @@ before_deploy:
   - ps: |
           $artifactPaths = ''
           foreach ($artifactName in $artifacts.keys) { 
-            $artifacts[artifactName].path
+            $artifacts[artifactName]
             $artifactPaths += $artifacts[$artifactName].path 
             $artifactPaths += ' '
           }
