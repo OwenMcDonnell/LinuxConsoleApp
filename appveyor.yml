@@ -16,7 +16,7 @@ build:
   project: LinuxConsoleApp.sln
   #publish_wap: true
 after_build:
-  - 7z a package.zip ./**/*.dll
+  - 7z a package.zip -r %APPVEYOR_BUILD_FOLDER%/*.dll
 deploy_script: 
   - ps: | 
           $artifacts.count
