@@ -20,8 +20,8 @@ before_deploy:
           $artifactPaths = ''
           foreach ($artifactName in $artifacts.keys) { 
             write-host $artifactName
-            artifactPaths += $artifacts[$artifactName].path 
-            artifactPaths += \s
+            $artifactPaths += $artifacts[$artifactName].path 
+            $artifactPaths += \s
            
             7z a package.zip $artifacts[$artifactName].path
           }
@@ -30,5 +30,5 @@ deploy_script:
   - ps: | 
           $artifacts.count
           foreach ($artifactName in $artifacts.keys) {             
-            $artifacts[$artifactName].path
+            $artifacts[$artifactName]
           }
