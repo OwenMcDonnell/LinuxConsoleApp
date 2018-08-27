@@ -17,9 +17,9 @@ build:
   #publish_wap: true
 after_build:
   - ps: |
-      foreach ($artifactValue in $artifacts.values) {
-         7z a package.zip $artifactValue.path
-      }
+          foreach ($artifactName in $artifacts.keys) {             
+            7z a package.zip $artifacts[$artifactName].path
+          }
 deploy_script: 
   - ps: | 
           $artifacts.count
