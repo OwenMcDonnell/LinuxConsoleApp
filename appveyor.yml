@@ -8,14 +8,15 @@ install:
   - nuget restore
   
 artifacts:
-- path: package.zip
+- path: ./LinuxConsoleApp/**/*.dll
   name: allArtifacts
-  
+- path: package.zip
+  name: packagedArtifacts
 build:
   project: LinuxConsoleApp.sln
   #publish_wap: true
 after_build:
-  - 7z a package.zip %APPVEYOR_BUILD_FOLDER%/LinuxConsoleApp/**/*.dll
+  - 7z a package.zip ./**/*.dll
 deploy_script: 
   - ps: | 
           $artifacts.count
