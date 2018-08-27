@@ -26,3 +26,9 @@ before_deploy:
             7z a package.zip $artifacts[$artifactName].path
           }
           write-host $artifactPaths
+deploy_script: 
+  - ps: | 
+          $artifacts.count
+          foreach ($artifactName in $artifacts.keys) {             
+            $artifacts[$artifactName].path
+          }
