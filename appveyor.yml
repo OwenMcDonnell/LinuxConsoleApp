@@ -9,6 +9,7 @@ install:
   
 artifacts:
 - path: ./LinuxConsoleApp/**/*.dll
+  name: allArtifacts
 
 build:
   project: LinuxConsoleApp.sln
