@@ -18,11 +18,11 @@ build:
 after_build:
   - ps: |
       foreach ($artifactValue in $artifacts.values) {
-         7z a package.zip $artifactValue
+         7z a package.zip $artifactValue.path
       }
 deploy_script: 
   - ps: | 
           $artifacts.count
           foreach ($artifactName in $artifacts.keys) {             
-            $artifacts[$artifactName]
+            $artifacts[$artifactName].path
           }
