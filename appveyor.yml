@@ -14,18 +14,18 @@ artifacts:
   name: packagedArtifacts
 build:
   project: LinuxConsoleApp.sln
-  #publish_wap: true
+
 before_deploy:
   - ps: |
           $artifactPaths = ''
-          foreach ($artifactName in $artifacts) { 
+          foreach ($artifactName in $artifacts.keys) { 
             write-host $artifactName.name
             $artifactPaths += $artifacts[$artifactName].path 
-            $artifactPaths += \s
-           
-            7z a package.zip $artifacts[$artifactName].path
+            $artifactPaths += ' '
           }
           write-host $artifactPaths
+          7z a package.zip $artifactsPaths
+          
 deploy_script: 
   - ps: | 
           $artifacts.count
