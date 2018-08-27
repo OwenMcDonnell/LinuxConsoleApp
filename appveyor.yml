@@ -17,7 +17,12 @@ build:
   #publish_wap: true
 after_build:
   - ps: |
+          $artifactPaths = ''
           foreach ($artifactName in $artifacts.keys) { 
             write-host $artifactName
+            artifactPaths += $artifacts[$artifactName].path 
+            artifactPaths += \s
+           
             7z a package.zip $artifacts[$artifactName].path
           }
+          write-host $artifactPaths
