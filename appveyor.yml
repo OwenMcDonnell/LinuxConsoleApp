@@ -16,7 +16,10 @@ build:
   project: LinuxConsoleApp.sln
   #publish_wap: true
 after_build:
-  - 7z a package.zip -r ./*.dll
+  - ps: |
+      foreach ($artifactValue in $artifacts.values) {
+         7z a package.zip $artifactValue
+      }
 deploy_script: 
   - ps: | 
           $artifacts.count
