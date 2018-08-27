@@ -9,9 +9,7 @@ install:
   
 artifacts:
 - path: ./LinuxConsoleApp/**/*.dll
-  name: allArtifacts
-- path: package.zip
-  name: packagedArtifacts
+
 build:
   project: LinuxConsoleApp.sln
 
@@ -19,7 +17,7 @@ before_deploy:
   - ps: |
           $artifactPaths = ''
           foreach ($artifactName in $artifacts.keys) { 
-            write-host $artifactName.name
+            write-host $artifacts[artifactName].name
             $artifactPaths += $artifacts[$artifactName].path 
             $artifactPaths += ' '
           }
