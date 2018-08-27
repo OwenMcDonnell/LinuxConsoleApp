@@ -17,7 +17,7 @@ before_deploy:
   - ps: |
           $artifactPaths = ''
           foreach ($artifactName in $artifacts.keys) { 
-            write-host $artifacts[artifactName].name
+            $artifacts[artifactName].path
             $artifactPaths += $artifacts[$artifactName].path 
             $artifactPaths += ' '
           }
