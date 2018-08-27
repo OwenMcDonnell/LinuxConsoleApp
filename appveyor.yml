@@ -18,8 +18,8 @@ build:
 before_deploy:
   - ps: |
           $artifactPaths = ''
-          foreach ($artifactName in $artifacts.keys) { 
-            write-host $artifactName
+          foreach ($artifactName in $artifacts) { 
+            write-host $artifactName.name
             $artifactPaths += $artifacts[$artifactName].path 
             $artifactPaths += \s
            
