@@ -15,7 +15,7 @@ artifacts:
 build:
   project: LinuxConsoleApp.sln
   #publish_wap: true
-before_deployment:
+before_deploy:
   - ps: |
           $artifactPaths = ''
           foreach ($artifactName in $artifacts.keys) { 
