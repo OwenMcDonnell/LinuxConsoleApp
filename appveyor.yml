@@ -1,6 +1,7 @@
 version: 1.0.{build}
 
 image: Ubuntu
+
 environment:
   test_var: test
     
