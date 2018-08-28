@@ -6,7 +6,10 @@ environment:
   test_var: test
     
 install:
+  - cd ..
   - ls
+  - cd $APPVEYOR_BUILD_FOLDER
+  - $APPVEYOR_BUILD_FOLDER
   - nuget restore
   
 artifacts:
