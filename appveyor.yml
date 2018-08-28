@@ -9,7 +9,6 @@ install:
   
 artifacts:
 - path: ./LinuxConsoleApp/**/*.dll
-  name: allArtifacts
 
 
 build:
@@ -25,6 +24,7 @@ before_deploy:
           }
           write-host $artifactPaths
           7z a package.zip $artifactsPaths
+  - appveyor PushArtifact package.zip 
           
 deploy_script: 
   - ps: | 
