@@ -1,10 +1,11 @@
 version: 1.0.{build}
 
-image: Visual Studio 2017
+image: Ubuntu
 environment:
   test_var: test
     
 install:
+  - ls
   - nuget restore
   
 artifacts:
