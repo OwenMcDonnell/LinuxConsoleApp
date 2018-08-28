@@ -19,9 +19,8 @@ before_deploy:
           $artifactPaths = ''
           foreach ($artifactName in $artifacts.keys) { 
             $artifacts[$artifactName]
-            7z a package.zip $artifactsPaths
-            $artifactPaths += $artifacts[$artifactName].path 
-            $artifactPaths += ' '
+            7z a package.zip $artifacts[$artifactName].path
+            $artifactPaths += $artifacts[$artifactName].path
           }
           write-host $artifactPaths
           
