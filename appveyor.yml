@@ -8,7 +8,7 @@ install:
   - nuget restore
   
 artifacts:
-- path: ./LinuxConsoleApp/**/*.dll
+- path: '**/*.dll'
 
 
 build:
