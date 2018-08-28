@@ -8,7 +8,7 @@ install:
   - nuget restore
   
 artifacts:
-- path: '**/*.dll'
+- path: LinuxConsoleApp\**\*.dll
 
 
 build:
@@ -19,11 +19,12 @@ before_deploy:
           $artifactPaths = ''
           foreach ($artifactName in $artifacts.keys) { 
             $artifacts[$artifactName]
+            7z a package.zip $artifactsPaths
             $artifactPaths += $artifacts[$artifactName].path 
             $artifactPaths += ' '
           }
           write-host $artifactPaths
-          7z a package.zip $artifactsPaths
+          
   - appveyor PushArtifact package.zip 
           
 deploy_script: 
