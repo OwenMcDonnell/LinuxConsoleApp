@@ -1,15 +1,15 @@
 version: 1.0.{build}
 
-image: Ubuntu
+image: Visual Studio 2017
 
 environment:
   test_var: test
     
 install:
-  - cd ..
-  - ls
-  - cd $APPVEYOR_BUILD_FOLDER
-  - $APPVEYOR_BUILD_FOLDER
+  #- cd ..
+  #- ls
+  #- cd $APPVEYOR_BUILD_FOLDER
+  #- $APPVEYOR_BUILD_FOLDER
   - nuget restore
   
 artifacts:
@@ -18,7 +18,8 @@ artifacts:
 
 build:
   project: LinuxConsoleApp.sln
-
+  publish_wap: true
+  
 before_deploy:
   - ps: |
           $artifactPaths = ''
