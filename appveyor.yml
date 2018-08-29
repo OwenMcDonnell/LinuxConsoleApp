@@ -10,4 +10,4 @@ build: false
 install:
   - ps: rm Alias:wget
   - ps: choco install wget
-  - ps: wget www.google.com 2> $null
+  - ps: & cmd /c 'wget www.google.com 2>&1'
