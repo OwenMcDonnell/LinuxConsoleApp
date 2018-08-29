@@ -1,39 +1,14 @@
 version: 1.0.{build}
 
-image: Ubuntu
+image: 
+  - Visual Studio 2013
+  - Visual Studio 2015
+  - Visual Studio 2017
 
-environment:
-  test_var: test
-    
+
+build: false
+
 install:
-  - cd ..
-  - ls
-  - cd $APPVEYOR_BUILD_FOLDER
-  - $APPVEYOR_BUILD_FOLDER
-  - nuget restore
-  
-artifacts:
-- path: LinuxConsoleApp\bin\**\*
-
-
-build:
-  project: LinuxConsoleApp.sln
-
-before_deploy:
-  - ps: |
-          $artifactPaths = ''
-          foreach ($artifactName in $artifacts.keys) { 
-            $artifacts[$artifactName]
-            7z a package.zip $artifacts[$artifactName].path
-            $artifactPaths += $artifacts[$artifactName].path
-          }
-          write-host $artifactPaths
-          
-  - appveyor PushArtifact package.zip 
-          
-deploy_script: 
-  - ps: | 
-          $artifacts.count
-          foreach ($artifactName in $artifacts.keys) {             
-            $artifacts[$artifactName]
-          }
+  #- ps: rm Alias:wget
+  - ps: choco install wget
+  - ps: wget -UseBasicParsing www.google.com
