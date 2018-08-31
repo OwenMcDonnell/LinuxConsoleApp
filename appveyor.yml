@@ -11,6 +11,7 @@ install:
   #- cd $APPVEYOR_BUILD_FOLDER
   #- $APPVEYOR_BUILD_FOLDER
   - nuget restore
+  - chcp 65001
   - echo %APPVEYOR_REPO_COMMIT_MESSAGE%
   - ps: echo $env:APPVEYOR_REPO_COMMIT_MESSAGE
   
