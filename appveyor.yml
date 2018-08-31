@@ -11,14 +11,16 @@ install:
   #- cd $APPVEYOR_BUILD_FOLDER
   #- $APPVEYOR_BUILD_FOLDER
   - nuget restore
+  - echo %APPVEYOR_REPO_COMMIT_MESSAGE%
+  - ps: echo $env:APPVEYOR_REPO_COMMIT_MESSAGE
   
-artifacts:
-- path: LinuxConsoleApp\bin\**\*
+#artifacts:
+#- path: LinuxConsoleApp\bin\**\*
 
 
 build:
   project: LinuxConsoleApp.sln
-  publish_wap: true
+  #publish_wap: true
   
 before_deploy:
   - ps: |
