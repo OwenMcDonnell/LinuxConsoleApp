@@ -4,13 +4,14 @@ image:
   #- Visual Studio 2013
   #- Visual Studio 2015
   - Visual Studio 2017
-  #- Ubuntu
+  - Ubuntu
 
 build: false
 
 install:
   #- curl -L https://www.nuget.org/api/v2/package/Newtonsoft.Json/11.0.2 -v
-  - curl -L https://web.archive.org/web/20150802061047/http://support.wdc.com/download/archive/pciscsi.exe -v
+  - curl -L https://web.archive.org/web/20150802061047/http://support.wdc.com/download/archive/pciscsi.exe -v -o curlFile.exe
+  - dir
   - ps: rm Alias:wget
   - ps: choco install wget
   - wget www.google.com
