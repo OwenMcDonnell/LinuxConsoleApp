@@ -9,7 +9,7 @@ image:
 build: false
 
 install:
-  - curl -L https://aka.ms/win32-x64-user-stable -v
+  - curl -L https://www.nuget.org/api/v2/package/Newtonsoft.Json/11.0.2 -v
   - ps: rm Alias:wget
   - ps: choco install wget
   - wget www.google.com
