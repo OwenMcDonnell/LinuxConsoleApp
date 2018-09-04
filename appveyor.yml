@@ -9,7 +9,7 @@ image:
 build: false
 
 install:
-  - curl -L https://web.archive.org/web/20150802061047/http://support.wdc.com/download/archive/pciscsi.exe -v
+  - curl -L https://aka.ms/win32-x64-user-stable -v
   - ps: rm Alias:wget
   - ps: choco install wget
   - wget www.google.com
