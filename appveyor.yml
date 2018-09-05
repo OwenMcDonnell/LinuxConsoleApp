@@ -11,9 +11,12 @@ install:
   #- cd $APPVEYOR_BUILD_FOLDER
   #- $APPVEYOR_BUILD_FOLDER
   - nuget restore
-  - chcp 65001
-  - echo %APPVEYOR_REPO_COMMIT_MESSAGE%
-  - ps: echo $env:APPVEYOR_REPO_COMMIT_MESSAGE
+  #- chcp 65001
+  #- echo %APPVEYOR_REPO_COMMIT_MESSAGE%
+  - ps: |
+      [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
+      [Environment]::SetEnvironmentVariable("PATH", $env:PATH + ";C:\Solidity", "Machine")
+      [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
   - build.cmd
   
   
