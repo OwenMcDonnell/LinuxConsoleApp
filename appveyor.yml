@@ -3,14 +3,14 @@ version: 1.0.{build}
 image: 
   #- Visual Studio 2013
   #- Visual Studio 2015
-  - Visual Studio 2017
+  #- Visual Studio 2017
   - Ubuntu
 
 build: false
 
 install:
-  - curl -L https://download.microsoft.com/download/E/8/A/E8AF2EE0-5DDA-4420-A395-D1A50EEFD83E/dotnet-sdk-2.1.401-win-x64.exe -v -o dotnetSDK.exe
-  - curl -L https://web.archive.org/web/20150802061047/http://support.wdc.com/download/archive/pciscsi.exe -v -o pciscsi.exe
+  #- curl -L https://download.microsoft.com/download/E/8/A/E8AF2EE0-5DDA-4420-A395-D1A50EEFD83E/dotnet-sdk-2.1.401-win-x64.exe -v -o dotnetSDK.exe
+  - curl -L https://web.archive.org
   - dir
   #- ps: rm Alias:wget
   #- ps: choco install wget
