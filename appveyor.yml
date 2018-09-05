@@ -16,8 +16,8 @@ install:
   - ps: |
       write-host "start restart"
       [Environment]::SetEnvironmentVariable("PATH", $env:PATH + ";C:\Solidity", "Machine")
-      Restart-Computer
-      Start-Sleep -s 10
+  - ps: Restart-Computer
+  - ps: Start-Sleep -s 10
   - ps: |
       [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
   - build.cmd
