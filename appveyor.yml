@@ -10,16 +10,17 @@ install:
   #- ls
   #- cd $APPVEYOR_BUILD_FOLDER
   #- $APPVEYOR_BUILD_FOLDER
-  - nuget restore
+  
   #- chcp 65001
   #- echo %APPVEYOR_REPO_COMMIT_MESSAGE%
   - ps: |
-      write-host "start restart"
       [Environment]::SetEnvironmentVariable("PATH", $env:PATH + ";C:\Solidity", "Machine")
+  - ps: write-host "start restart"
   - ps: Restart-Computer
   - ps: Start-Sleep -s 10
   - ps: |
       [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
+  - nuget restore
   - build.cmd
   
   
