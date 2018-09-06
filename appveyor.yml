@@ -13,6 +13,7 @@ install:
   
   #- chcp 65001
   #- echo %APPVEYOR_REPO_COMMIT_MESSAGE%
+  - ./test.ps1
   - ps: |
       [Environment]::SetEnvironmentVariable("PATH", $env:PATH + ";C:\Solidity", "Machine")
   - ps: write-host "start restart"
