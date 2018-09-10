@@ -19,3 +19,6 @@ install:
   #- ps: rm Alias:wget
   #- ps: choco install wget
   #- wget www.google.com
+
+cache:
+  - var/cache/apt/archives -> appveyor.yml
