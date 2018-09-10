@@ -9,7 +9,7 @@ image:
 build: false
 
 install:
-
+  - cat /tmp/build-cache-logs/f1135c1a0edcf36d1afbbd802a2cda099204cf1c.zip.001.log
   - sudo apt-get -f install haskell-stack
   - ls /var/cache/apt/archives/
   - sudo rm /var/cache/apt/archives/lock
@@ -24,5 +24,5 @@ install:
 
 cache:
   - C:\ProgramData\chocolatey\lib
-  - /var/cache/apt/archives/haskell-stack_0.1.10.0-1_amd64.deb -> appveyor.yml
+  - /var/cache/apt/archives/haskell-stack_0.1.10.0-1_amd64.deb/ -> appveyor.yml
  
