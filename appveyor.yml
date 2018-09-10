@@ -9,10 +9,13 @@ image:
 build: false
 
 install:
+  - ls /var/cache/apt/archives/
+  - sudo apt-get install adabrowse
+  - ls /var/cache/apt/archives/
   #- curl -L https://download.microsoft.com/download/E/8/A/E8AF2EE0-5DDA-4420-A395-D1A50EEFD83E/dotnet-sdk-2.1.401-win-x64.exe -v -o dotnetSDK.exe
-  - cat /etc/hosts
-  - curl -L http://web.archive.org
-  - dir
+  #- cat /etc/hosts
+  #- curl -L http://web.archive.org
+  #- dir
   #- ps: rm Alias:wget
   #- ps: choco install wget
   #- wget www.google.com
