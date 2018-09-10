@@ -9,7 +9,7 @@ image:
 build: false
 
 install:
-  - cat /tmp/build-cache-logs/f1135c1a0edcf36d1afbbd802a2cda099204cf1c.zip.001.log
+  - if [ -f "/tmp/build-cache-logs/f1135c1a0edcf36d1afbbd802a2cda099204cf1c.zip.001.log" ]; then cat /tmp/build-cache-logs/f1135c1a0edcf36d1afbbd802a2cda099204cf1c.zip.001.log; fi
   - sudo apt-get -f install haskell-stack
   - ls /var/cache/apt/archives/
   - sudo rm /var/cache/apt/archives/lock
