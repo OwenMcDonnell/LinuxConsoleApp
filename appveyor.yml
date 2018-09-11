@@ -22,7 +22,7 @@ install:
   #- ps: choco install wget
   #- wget www.google.com
 artifacts:
-  - path: './dotnetSDK.exe'
+  - path: './**/*.log'
     name: test
 cache:
   - C:\ProgramData\chocolatey\lib
