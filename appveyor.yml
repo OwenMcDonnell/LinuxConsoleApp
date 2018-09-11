@@ -22,7 +22,7 @@ install:
   #- ps: choco install wget
   #- wget www.google.com
 artifacts:
-  - path: '.\tmp\build-cache-logs\*.log'
+  - path: .\tmp\build-cache-logs\*.log
 cache:
   - C:\ProgramData\chocolatey\lib
   - /var/cache/apt/archives/haskell-stack_0.1.10.0-1_amd64.deb/
