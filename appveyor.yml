@@ -22,7 +22,7 @@ install:
   #- ps: choco install wget
   #- wget www.google.com
 artifacts:
-  - path: './**/*.log'
+  - path: './tmp/build-cache-logs/*.*'
     name: test
 cache:
   - C:\ProgramData\chocolatey\lib
