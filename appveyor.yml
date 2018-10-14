@@ -13,16 +13,16 @@ install:
   
   #- chcp 65001
   #- echo %APPVEYOR_REPO_COMMIT_MESSAGE%
-  - ps: ./test.ps1
+  #- ps: ./test.ps1
   - ps: |
       [Environment]::SetEnvironmentVariable("PATH", $env:PATH + ";C:\Solidity", "Machine")
-  - ps: write-host "start restart"
-  - ps: Restart-Computer
-  - ps: Start-Sleep -s 10
+  #- ps: write-host "start restart"
+  #- ps: Restart-Computer
+  #- ps: Start-Sleep -s 10
   - ps: |
       [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
   - nuget restore
-  - build.cmd
+  #- build.cmd
   
   
 #artifacts:
@@ -31,7 +31,8 @@ install:
 build:
   project: LinuxConsoleApp.sln
   #publish_wap: true
-  
+after_test:
+  - echo "after test!!"
 before_deploy:
   - ps: |
           $artifactPaths = ''
