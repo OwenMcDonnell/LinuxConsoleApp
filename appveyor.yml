@@ -14,6 +14,7 @@ install:
   #- chcp 65001
   #- echo %APPVEYOR_REPO_COMMIT_MESSAGE%
   #- ps: ./test.ps1
+  - dir %userprofile%\.nuget
   - ps: |
       [Environment]::SetEnvironmentVariable("PATH", $env:PATH + ";C:\Solidity", "Machine")
   #- ps: write-host "start restart"
