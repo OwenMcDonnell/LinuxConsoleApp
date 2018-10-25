@@ -4,52 +4,22 @@ image: Visual Studio 2017
 
 environment:
   test_var: test
+-
+  branches:
+    only: test
+  
+  install:
+    - ps: |
+        [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
+    - echo %xunit20%
     
-install:
-  #- cd ..
-  #- ls
-  #- cd $APPVEYOR_BUILD_FOLDER
-  #- $APPVEYOR_BUILD_FOLDER
-  
-  #- chcp 65001
-  #- echo %APPVEYOR_REPO_COMMIT_MESSAGE%
-  #- ps: ./test.ps1
-  - dir %userprofile%\.nuget
-  - ps: |
-      [Environment]::SetEnvironmentVariable("PATH", $env:PATH + ";C:\Solidity", "Machine")
-  #- ps: write-host "start restart"
-  #- ps: Restart-Computer
-  #- ps: Start-Sleep -s 10
-  - ps: |
-      [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
-  - nuget restore
-  - echo %xunit20%
-  #- build.cmd
-  
-  
-#artifacts:
-#- path: LinuxConsoleApp\bin\**\*
+  build:
+    project: LinuxConsoleApp.sln
+-
+  only_commits:
+    files: 
+      - README.md
+  after_test:
+    - echo "after test!!"
 
-build:
-  project: LinuxConsoleApp.sln
-  #publish_wap: true
-after_test:
-  - echo "after test!!"
-before_deploy:
-  - ps: |
-          $artifactPaths = ''
-          foreach ($artifactName in $artifacts.keys) { 
-            $artifacts[$artifactName]
-            7z a package.zip $artifacts[$artifactName].path
-            $artifactPaths += $artifacts[$artifactName].path
-          }
-          write-host $artifactPaths
-          
-  - appveyor PushArtifact package.zip 
-          
-deploy_script: 
-  - ps: | 
-          $artifacts.count
-          foreach ($artifactName in $artifacts.keys) {             
-            $artifacts[$artifactName]
-          }
+
