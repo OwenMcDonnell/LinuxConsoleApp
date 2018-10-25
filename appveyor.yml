@@ -1,14 +1,14 @@
-version: 1.0.{build}
 
-image: Visual Studio 2017
-
-environment:
-  test_var: test
 -
   branches:
     only: 
       - test
-  
+  version: 1.0.{build}
+
+  image: Visual Studio 2017
+
+  environment:
+    test_var: test
   install:
     - ps: |
         [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
@@ -17,6 +17,12 @@ environment:
   build:
     project: LinuxConsoleApp.sln
 -
+  version: 1.0.{build}
+
+  image: Visual Studio 2017
+
+  environment:
+    test_var: test
   only_commits:
     files: 
       - README.md
