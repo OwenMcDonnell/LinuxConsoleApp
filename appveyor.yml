@@ -17,6 +17,23 @@
   build:
     project: LinuxConsoleApp.sln
 -
+  branches:
+    only: 
+      - master
+  version: 1.0.{build}
+
+  image: Visual Studio 2017
+
+  environment:
+    test_var: test
+  install:
+    - ps: |
+        [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
+    - echo %xunit20%
+    
+  build: off
+-
+  configuration: debug
   version: 1.0.{build}
 
   image: Visual Studio 2017
