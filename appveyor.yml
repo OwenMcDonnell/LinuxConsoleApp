@@ -6,7 +6,8 @@ environment:
   test_var: test
 -
   branches:
-    only: test
+    only: 
+      - test
   
   install:
     - ps: |
