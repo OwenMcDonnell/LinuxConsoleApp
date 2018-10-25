@@ -19,7 +19,7 @@
 -
   branches:
     only: 
-      - master
+      - conditional-config
   version: 1.0.{build}
   image: Visual Studio 2017
   install:
