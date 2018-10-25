@@ -1,45 +1,27 @@
+version: 1.0.{build}
+image: Visual Studio 2017
+install:
+  - ps: |
+      [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
+  - echo %xunit20%    
+build: off
 
--
-  branches:
-    only: 
-      - test
-  version: 1.0.{build}
+for:
+  -
+    branches:
+      only: 
+        - test
+    only_commits:
+      files: 
+         - README.md
+    version: 1.0.{build}
 
-  image: Visual Studio 2017
+    image: Visual Studio 2017
 
-  environment:
-    test_var: test
-  install:
-    - ps: |
-        [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
-    - echo %xunit20%
+    environment:
+      test_var: test
+    install:
+      - echo "in test branch"
     
-  build:
-    project: LinuxConsoleApp.sln
--
-  branches:
-    only: 
-      - conditional-config
-  version: 1.0.{build}
-  image: Visual Studio 2017
-  install:
-    - ps: |
-        [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
-    - echo %xunit20%    
-  build: off
-  
--
-  configuration: debug
-  version: 1.0.{build}
-
-  image: Visual Studio 2017
-
-  environment:
-    test_var: test
-  only_commits:
-    files: 
-      - README.md
-  after_test:
-    - echo "after test!!"
 
 
