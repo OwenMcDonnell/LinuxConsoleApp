@@ -4,7 +4,9 @@ install:
   - ps: |
       [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
   - echo %xunit20%    
-build: off
+build: 
+ project: LinuxConsoleApp.sln
+ publish_aspnet_core: true
 
 for:
   -
