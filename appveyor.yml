@@ -3,7 +3,7 @@ image: Visual Studio 2017
 #environment:
   #Path: C:\Random-Test\;%path%
 install:
-  - set path "%path%;C:\random-test\"
+  - set path=C:\random-test;%PATH%
   - echo %path%
   #- ps: |
    #   [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
