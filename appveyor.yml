@@ -1,11 +1,12 @@
 version: 1.0.{build}
 image: Visual Studio 2017
-environment:
-  Path: C:\Random-Test\;%path%
+#environment:
+  #Path: C:\Random-Test\;%path%
 install:
-  - setx path "C:\random-test\;%path%"
-  - ps: |
-      [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
+  - setx path "%path%;C:\random-test"
+  - echo %path%
+  #- ps: |
+   #   [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
   - echo %xunit20%    
 build: 
  project: LinuxConsoleApp.sln
