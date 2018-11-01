@@ -3,7 +3,7 @@ image: Visual Studio 2017
 environment:
   Path: C:\Random-Test\;%path%
 install:
-  - set path=C:\random-test\;%path%
+  - setx path "C:\random-test\;%path%"
   - ps: |
       [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
   - echo %xunit20%    
