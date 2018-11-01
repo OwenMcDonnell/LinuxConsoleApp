@@ -1,7 +1,7 @@
 version: 1.0.{build}
 image: Visual Studio 2017
 environment:
-  path: c:\random-test\;%path%
+  path: c:\brandom-test\;%path%
 install:
   #- set path=C:\random-test;%PATH%
   - echo %path%
