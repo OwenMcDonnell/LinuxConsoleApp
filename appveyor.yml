@@ -18,9 +18,7 @@ for:
     branches:
       only: 
         - test
-    only_commits:
-      files: 
-         - README.md
+
     version: 1.0.{build}
 
     image: Visual Studio 2017
@@ -29,3 +27,17 @@ for:
       test_var: test
     install:
       - echo "in test branch"
+  
+  -
+    branches:
+      only: 
+        - master
+
+    version: 1.0.{build}
+
+    image: Visual Studio 2017
+
+    environment:
+      test_var: test
+    install:
+      - echo "in master branch"
