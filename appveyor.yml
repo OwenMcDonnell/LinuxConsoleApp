@@ -10,8 +10,7 @@
   build: 
    project: LinuxConsoleApp.sln
   install:
-    - echo "in test branch"
-  
+    - echo "in test branch"  
 -
   branches:
     only: 
