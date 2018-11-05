@@ -7,11 +7,10 @@
 
   environment:
     test_var: test
-  build: 
-   project: LinuxConsoleApp.sln
+  build: off
+   #project: LinuxConsoleApp.sln
   install:
-    - echo "in test branch"
-  
+    - echo "in test branch"  
 -
   branches:
     only: 
@@ -19,7 +18,7 @@
   version: 1.0.{build}
 
   image: Visual Studio 2017
-  #build: off
+  build: off
   environment:
     test_var: test
   install:
