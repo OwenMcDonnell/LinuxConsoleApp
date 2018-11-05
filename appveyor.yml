@@ -2,7 +2,7 @@
   branches:
     only: 
       - test
-  version: 1.0.{build
+  version: 1.0.{build}
   image: Visual Studio 2017
 
   environment:
@@ -19,7 +19,7 @@
   version: 1.0.{build}
 
   image: Visual Studio 2017
-  build: off
+  #build: off
   environment:
     test_var: test
   install:
