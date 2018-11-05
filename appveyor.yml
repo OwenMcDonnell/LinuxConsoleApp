@@ -7,8 +7,8 @@
 
   environment:
     test_var: test
-  build: 
-   project: LinuxConsoleApp.sln
+  build: off
+   #project: LinuxConsoleApp.sln
   install:
     - echo "in test branch"  
 -
