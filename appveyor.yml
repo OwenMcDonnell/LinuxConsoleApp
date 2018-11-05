@@ -1,43 +1,26 @@
-version: 1.0.{build}
-image: Visual Studio 2017
-environment:
-  path: c:\brandom-test\;%path%
-install:
-  - nuget restore
-  #- set path=C:\random-test;%PATH%
-  - echo %path%
-  #- ps: |
-   #   [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
-  - echo %xunit20%    
-build: 
- project: LinuxConsoleApp.sln
- #publish_aspnet_core: true
+-
+  branches:
+    only: 
+      - test
+  version: 1.0.{build
+  image: Visual Studio 2017
 
-for:
-  -
-    branches:
-      only: 
-        - test
-
-    version: 1.0.{build}
-
-    image: Visual Studio 2017
-
-    environment:
-      test_var: test
-    install:
-      - echo "in test branch"
+  environment:
+    test_var: test
+  build: 
+   project: LinuxConsoleApp.sln
+  install:
+    - echo "in test branch"
   
-  -
-    branches:
-      only: 
-        - master
+-
+  branches:
+    only: 
+      - master
+  version: 1.0.{build}
 
-    version: 1.0.{build}
-
-    image: Visual Studio 2017
-
-    environment:
-      test_var: test
-    install:
-      - echo "in master branch"
+  image: Visual Studio 2017
+  build: off
+  environment:
+    test_var: test
+  install:
+    - echo "in master branch"
