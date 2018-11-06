@@ -1,7 +1,7 @@
 -
   branches:
     only: 
-      - test
+      - test-fake
   version: 1.0.{build}
   image: Visual Studio 2017
 
@@ -36,5 +36,5 @@
    #   [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
     - echo %xunit20%    
   build: 
-   project: LinuxConsoleApp.sln
-   #publish_aspnet_core: true
+    project: LinuxConsoleApp.sln
+    #publish_aspnet_core: true
