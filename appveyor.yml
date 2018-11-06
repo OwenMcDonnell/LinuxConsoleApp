@@ -23,18 +23,3 @@
     test_var: test
   install:
     - echo "in master branch"
--
-  version: 1.0.{build}
-  image: Visual Studio 2017
-  environment:
-    path: c:\brandom-test\;%path%
-  install:
-    - nuget restore
-  #- set path=C:\random-test;%PATH%
-    - echo %path%
-  #- ps: |
-   #   [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
-    - echo %xunit20%    
-  build: 
-    project: LinuxConsoleApp.sln
-    #publish_aspnet_core: true
