@@ -2,7 +2,7 @@ version: 1.0.{build}
 
 image: Ubuntu
 
-clone_script:
+init:
   - sh: echo $APPVEYOR_BUILD_NUMBER
   - sh: a=`expr $APPVEYOR_BUILD_NUMBER % 2` && if [[ $a != 5 ]]; then echo $a; fi
   #- sh: appveyor exit
