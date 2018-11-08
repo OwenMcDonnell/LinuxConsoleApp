@@ -5,6 +5,7 @@ image: Ubuntu
 init:
   - sh: echo $APPVEYOR_BUILD_NUMBER
   - sh: a=`expr $APPVEYOR_BUILD_NUMBER % 2` && if [[ $a != 5 ]]; then echo $a; fi
+  
   - sh: appveyor exit
 
 environment:
