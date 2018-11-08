@@ -4,7 +4,7 @@ image: Ubuntu
 
 clone_script:
   - sh: echo $APPVEYOR_BUILD_NUMBER
-  - sh: a=`expr $APPVEYOR_BUILD_NUMBER % 2` && if [[ $a == 0 ]]; then echo $a; fi
+  - sh: a=`expr $APPVEYOR_BUILD_NUMBER % 2` && if [ $a == 0 ]; then echo $a; fi
   #- sh: appveyor exit
 
 environment:
