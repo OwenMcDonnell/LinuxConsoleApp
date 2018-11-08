@@ -1,42 +1,45 @@
--
-  branches:
-    only: 
-      - test-fake
-  version: 1.0.{build}
-  image: Visual Studio 2017
+version: 1.0.{build}
 
-  environment:
-    test_var: test
-  build: off
-   #project: LinuxConsoleApp.sln
-  install:
-    - echo "in test branch"  
--
-  branches:
-    only: 
-      - master
-  version: 1.0.{build}
+image: Ubuntu
 
-  image: Visual Studio 2017
-  build:
-    project: LinuxConsoleApp.sln
-  environment:
-    test_var: test
-  install:
-    - echo "in master branch"
--
+clone_script:
+  - sh: echo $APPVEYOR_BUILD_NUMBER
+  - sh: a=`expr $APPVEYOR_BUILD_NUMBER % 2` && if [[ $a == 0 ]]; then echo $a; fi
+  - sh: appveyor exit
 
-  version: 1.0.{build}
-  image: Visual Studio 2017
-  environment:
-    path: c:\brandom-test\;%path%
-  install:
-    - nuget restore
-  #- set path=C:\random-test;%PATH%
-    - echo %path%
-  #- ps: |
-   #   [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
-    - echo %xunit20%    
-  build: 
-    project: LinuxConsoleApp.sln
-    #publish_aspnet_core: true
+environment:
+  test_var: test
+    
+install:
+  #- cd ..
+  #- ls
+  #- cd $APPVEYOR_BUILD_FOLDER
+  #- $APPVEYOR_BUILD_FOLDER
+  - nuget restore
+  
+artifacts:
+- path: LinuxConsoleApp\bin\**\*
+
+
+build:
+  project: LinuxConsoleApp.sln
+  publish_wap: true
+  
+before_deploy:
+  - ps: |
+          $artifactPaths = ''
+          foreach ($artifactName in $artifacts.keys) { 
+            $artifacts[$artifactName]
+            7z a package.zip $artifacts[$artifactName].path
+            $artifactPaths += $artifacts[$artifactName].path
+          }
+          write-host $artifactPaths
+          
+  - appveyor PushArtifact package.zip 
+          
+deploy_script: 
+  - ps: | 
+          $artifacts.count
+          foreach ($artifactName in $artifacts.keys) {             
+            $artifacts[$artifactName]
+          }
