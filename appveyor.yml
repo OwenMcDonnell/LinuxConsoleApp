@@ -18,8 +18,7 @@ install:
   - nuget restore
   
 artifacts:
-- path: LinuxConsoleApp\bin\**\*
-
+- path: LinuxConsoleApp\bin\**\*\
 
 build:
   project: LinuxConsoleApp.sln
