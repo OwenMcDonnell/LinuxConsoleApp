@@ -11,7 +11,7 @@ environment:
   test_var: test
     
 install:
-  - ps: aws help
+  - ps: aws version
   - nuget restore
   #- ps: |
    #   [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
