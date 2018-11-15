@@ -12,9 +12,7 @@ environment:
     
 install:
   - where aws
-  
-  - ps: |
-      aws --version
+  - ps: & "C:\Program Files\Amazon\AWSCLI\aws.exe" --version
   - nuget restore
   #- ps: |
    #   [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
