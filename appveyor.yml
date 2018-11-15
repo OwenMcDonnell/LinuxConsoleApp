@@ -12,7 +12,7 @@ environment:
     
 install:
   #- echo "changed"
-  - ps: (aws --version) | out-null
+  - ps: (aws --version) 2> $null
   - nuget restore
   #- ps: |
    #   [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
