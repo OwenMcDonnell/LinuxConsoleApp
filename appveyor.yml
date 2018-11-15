@@ -11,7 +11,7 @@ environment:
   test_var: test
     
 install:
-  - echo "changed"
+  #- echo "changed"
   - ps: & "C:\Program Files\Amazon\AWSCLI\aws.exe" --version
   - nuget restore
   #- ps: |
