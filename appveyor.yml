@@ -11,6 +11,8 @@ environment:
   test_var: test
     
 install:
+  - where aws
+  
   - ps: |
       aws --version
   - nuget restore
