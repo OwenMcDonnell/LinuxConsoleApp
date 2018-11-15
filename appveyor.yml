@@ -11,7 +11,7 @@ environment:
   test_var: test
     
 install:
-  - echo 'changed'
+  - echo "changed"
   - ps: |
       $return = aws --version
       write-host $return
