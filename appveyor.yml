@@ -12,9 +12,7 @@ environment:
     
 install:
   - echo "changed"
-  - ps: |
-      $return = aws --version
-      write-host $return
+  - ps: & "C:\Program Files\Amazon\AWSCLI\aws.exe" --version
   - nuget restore
   #- ps: |
    #   [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
