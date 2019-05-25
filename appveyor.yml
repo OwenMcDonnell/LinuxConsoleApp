@@ -2,7 +2,6 @@ version: 1.0.{build}
 image: Visual Studio 2017
 
 install:
-
   - nuget restore
   #- ps: |
    #   [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
