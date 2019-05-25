@@ -6,6 +6,7 @@ install:
   #- ps: |
    #   [environment]::GetEnvironmentVariable("PATH","Machine").split(";")
   - echo %xunit20%    
+  
 build: 
  project: LinuxConsoleApp.sln
  
