@@ -9,7 +9,6 @@ install:
   
 build: 
  project: LinuxConsoleApp.sln
- 
  #publish_aspnet_core: true
 
 for:
