@@ -8,6 +8,7 @@ install:
   - echo %xunit20%    
 build: 
  project: LinuxConsoleApp.sln
+ 
  #publish_aspnet_core: true
 
 
